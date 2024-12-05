@@ -7696,26 +7696,165 @@ Namespaces are one honking great idea -- let's do more of those!
 </div>
 </div>
 </div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">data_name</span> <span class="o">=</span> <span class="s2">"STOCK_DAY_ALL"</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://www.twse.com.tw/exchangeReport/</span><span class="si">{</span><span class="n">data_name</span><span class="si">}</span><span class="s2">?response=open_data"</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">)</span>
+<span class="n">string_io_response_text</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="n">twse</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">string_io_response_text</span><span class="p">)</span>
+<span class="n">twse</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>證券代號</th>
+<th>證券名稱</th>
+<th>成交股數</th>
+<th>成交金額</th>
+<th>開盤價</th>
+<th>最高價</th>
+<th>最低價</th>
+<th>收盤價</th>
+<th>漲跌價差</th>
+<th>成交筆數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>0050</td>
+<td>元大台灣50</td>
+<td>10613810.0</td>
+<td>2.062838e+09</td>
+<td>194.30</td>
+<td>194.85</td>
+<td>193.75</td>
+<td>194.30</td>
+<td>2.60</td>
+<td>14838.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>0051</td>
+<td>元大中型100</td>
+<td>71284.0</td>
+<td>5.561550e+06</td>
+<td>77.65</td>
+<td>78.25</td>
+<td>77.65</td>
+<td>78.05</td>
+<td>0.60</td>
+<td>275.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>0052</td>
+<td>富邦科技</td>
+<td>1033651.0</td>
+<td>1.976977e+08</td>
+<td>191.05</td>
+<td>191.95</td>
+<td>190.50</td>
+<td>190.90</td>
+<td>2.75</td>
+<td>1445.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>0053</td>
+<td>元大電子</td>
+<td>10444.0</td>
+<td>1.069091e+06</td>
+<td>102.20</td>
+<td>102.65</td>
+<td>102.20</td>
+<td>102.45</td>
+<td>1.30</td>
+<td>135.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>0055</td>
+<td>元大MSCI金融</td>
+<td>405153.0</td>
+<td>1.148577e+07</td>
+<td>28.27</td>
+<td>28.50</td>
+<td>28.27</td>
+<td>28.45</td>
+<td>0.28</td>
+<td>353.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">an_integer</span> <span class="o">=</span> <span class="mi">5566</span>
-<span class="n">a_float</span> <span class="o">=</span> <span class="mf">3.1415</span>
-<span class="n">a_string</span> <span class="o">=</span> <span class="s2">"Hello world!"</span>
-<span class="n">a_bool_false</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">a_bool_true</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">a_none_type</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">an_integer</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a_float</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a_string</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a_bool_false</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a_bool_true</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a_none_type</span><span class="p">))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># int</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">twse</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1"># float</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">twse</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="c1"># str</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">twse</span><span class="p">[</span><span class="s2">"證券名稱"</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -7728,12 +7867,71 @@ Namespaces are one honking great idea -- let's do more of those!
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;class 'int'&gt;
-&lt;class 'float'&gt;
-&lt;class 'str'&gt;
-&lt;class 'bool'&gt;
-&lt;class 'bool'&gt;
-&lt;class 'NoneType'&gt;
+<pre>(1270, 10)
+證券代號     object
+證券名稱     object
+成交股數    float64
+成交金額    float64
+開盤價     float64
+最高價     float64
+最低價     float64
+收盤價     float64
+漲跌價差    float64
+成交筆數    float64
+dtype: object
+0         元大台灣50
+1        元大中型100
+2           富邦科技
+3           元大電子
+4       元大MSCI金融
+          ...   
+1265          新麗
+1266         潤泰新
+1267        三發地產
+1268          佳龍
+1269         世紀鋼
+Name: 證券名稱, Length: 1270, dtype: object
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># bool</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">twse</span><span class="p">[</span><span class="s2">"證券名稱"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">"KY"</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">twse</span><span class="p">[</span><span class="s2">"證券名稱"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">"KY"</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>0       False
+1       False
+2       False
+3       False
+4       False
+        ...  
+1265    False
+1266    False
+1267    False
+1268    False
+1269    False
+Name: 證券名稱, Length: 1270, dtype: bool
+86
 </pre>
 </div>
 </div>
@@ -7769,6 +7967,36 @@ Namespaces are one honking great idea -- let's do more of those!
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># list</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">twse</span><span class="p">[</span><span class="s2">"成交股數"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">twse</span><span class="p">[</span><span class="s2">"成交股數"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'list'&gt;
+1270
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7780,6 +8008,36 @@ Namespaces are one honking great idea -- let's do more of those!
 <li><code>tuple</code> 是一種「有序」且「不能夠更新」的資料結構。</li>
 <li><code>tuple</code> 可以透過「逗號」<code>,</code> 分隔值與「小括號」<code>()</code> 形成。</li>
 </ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># tuple</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">twse</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">twse</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'tuple'&gt;
+(1270, 10)
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -7820,6 +8078,39 @@ Namespaces are one honking great idea -- let's do more of those!
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># dict</span>
+<span class="n">twse_dict</span> <span class="o">=</span> <span class="n">twse</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"證券代號"</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s2">"index"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">twse_dict</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">twse_dict</span><span class="p">[</span><span class="s2">"2330"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">twse_dict</span><span class="p">[</span><span class="s2">"2454"</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'dict'&gt;
+{'證券名稱': '台積電', '成交股數': 48632084.0, '成交金額': 51509603939.0, '開盤價': 1060.0, '最高價': 1065.0, '最低價': 1055.0, '收盤價': 1055.0, '漲跌價差': 20.0, '成交筆數': 55988.0}
+{'證券名稱': '聯發科', '成交股數': 6211010.0, '成交金額': 8141226882.0, '開盤價': 1325.0, '最高價': 1330.0, '最低價': 1295.0, '收盤價': 1315.0, '漲跌價差': 5.0, '成交筆數': 7911.0}
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7831,6 +8122,35 @@ Namespaces are one honking great idea -- let's do more of those!
 <li><code>set</code> 是一種「無序」、儲存「獨一值」並且能夠進行「集合運算」的資料結構。</li>
 <li><code>set</code> 可以透過「逗號」<code>,</code> 分隔值與「大括號」<code>{}</code> 形成。</li>
 </ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># set</span>
+<span class="n">ticker_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">twse</span><span class="p">[</span><span class="s2">"證券代號"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ticker_set</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'set'&gt;
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -7882,6 +8202,36 @@ Namespaces are one honking great idea -- let's do more of those!
     <span class="c1"># 依附 else 敘述的程式區塊。</span>
     <span class="c1"># 當條件一、條件二均為 False 的時候會被執行。</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="s2">"KY"</span> <span class="ow">in</span> <span class="n">twse</span><span class="p">[</span><span class="s2">"證券名稱"</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"KY股"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"非KY股"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>非KY股
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -7973,6 +8323,37 @@ Namespaces are one honking great idea -- let's do more of those!
 <li>資料類別：<code>str</code></li>
 <li>資料結構類別：<code>list</code>、<code>tuple</code>、<code>dict</code>、<code>set</code></li>
 </ul>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">ky_tickers</span> <span class="o">=</span> <span class="p">{</span><span class="n">ticker</span> <span class="k">for</span> <span class="n">ticker</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">twse</span><span class="p">[</span><span class="s2">"證券代號"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">twse</span><span class="p">[</span><span class="s2">"證券名稱"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="k">if</span> <span class="s2">"KY"</span> <span class="ow">in</span> <span class="n">name</span><span class="p">}</span>
+<span class="n">non_ky_tickers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">twse</span><span class="p">[</span><span class="s2">"證券代號"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">ky_tickers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ky_tickers</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">non_ky_tickers</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>86
+1184
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -8068,6 +8449,138 @@ Namespaces are one honking great idea -- let's do more of those!
 <li>定義函數的當下只有與語法錯誤相似的錯誤（例如縮排錯誤）會發起例外。</li>
 <li>如果是執行錯誤，在使用函數時才會發起。</li>
 </ul>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_open_data</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s2">"STOCK_DAY_ALL"</span>
+    <span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://www.twse.com.tw/exchangeReport/</span><span class="si">{</span><span class="n">data_name</span><span class="si">}</span><span class="s2">?response=open_data"</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">)</span>
+    <span class="n">string_io_response_text</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">twse</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">string_io_response_text</span><span class="p">)</span>
+    <span class="n">stocks</span> <span class="o">=</span> <span class="n">twse</span><span class="p">[</span><span class="n">twse</span><span class="p">[</span><span class="s2">"證券代號"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">args</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">stocks</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">get_open_data</span><span class="p">(</span><span class="s2">"0050"</span><span class="p">,</span> <span class="s2">"006208"</span><span class="p">,</span> <span class="s2">"2330"</span><span class="p">,</span> <span class="s2">"2454"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>證券代號</th>
+<th>證券名稱</th>
+<th>成交股數</th>
+<th>成交金額</th>
+<th>開盤價</th>
+<th>最高價</th>
+<th>最低價</th>
+<th>收盤價</th>
+<th>漲跌價差</th>
+<th>成交筆數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>0050</td>
+<td>元大台灣50</td>
+<td>10613810.0</td>
+<td>2.062838e+09</td>
+<td>194.3</td>
+<td>194.85</td>
+<td>193.75</td>
+<td>194.30</td>
+<td>2.6</td>
+<td>14838.0</td>
+</tr>
+<tr>
+<th>13</th>
+<td>006208</td>
+<td>富邦台50</td>
+<td>10048421.0</td>
+<td>1.132388e+09</td>
+<td>113.5</td>
+<td>113.50</td>
+<td>112.30</td>
+<td>112.45</td>
+<td>1.3</td>
+<td>14060.0</td>
+</tr>
+<tr>
+<th>485</th>
+<td>2330</td>
+<td>台積電</td>
+<td>48632084.0</td>
+<td>5.150960e+10</td>
+<td>1060.0</td>
+<td>1065.00</td>
+<td>1055.00</td>
+<td>1055.00</td>
+<td>20.0</td>
+<td>55988.0</td>
+</tr>
+<tr>
+<th>571</th>
+<td>2454</td>
+<td>聯發科</td>
+<td>6211010.0</td>
+<td>8.141227e+09</td>
+<td>1325.0</td>
+<td>1330.00</td>
+<td>1295.00</td>
+<td>1315.00</td>
+<td>5.0</td>
+<td>7911.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -8287,6 +8800,346 @@ Namespaces are one honking great idea -- let's do more of those!
 <li>可是設計類別的人不會知道物件名稱為何，因為實例化的物件名稱是由使用者所決定的。</li>
 <li>若是要在定義類別的時候描述屬性，就必須先給物件一個代名詞：<code>self</code> 作為第一個參數名稱。</li>
 </ul>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">GetOpenData</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data_name</span> <span class="o">=</span> <span class="s2">"STOCK_DAY_ALL"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://www.twse.com.tw/exchangeReport/</span><span class="si">{</span><span class="n">data_name</span><span class="si">}</span><span class="s2">?response=open_data"</span>
+    <span class="k">def</span> <span class="nf">get_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_url</span><span class="p">)</span>
+        <span class="n">string_io_response_text</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">twse</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">string_io_response_text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">twse</span>
+    <span class="k">def</span> <span class="nf">get_stocks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"證券代號"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">args</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">get_open_data</span> <span class="o">=</span> <span class="n">GetOpenData</span><span class="p">()</span>
+<span class="n">get_open_data</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>證券代號</th>
+<th>證券名稱</th>
+<th>成交股數</th>
+<th>成交金額</th>
+<th>開盤價</th>
+<th>最高價</th>
+<th>最低價</th>
+<th>收盤價</th>
+<th>漲跌價差</th>
+<th>成交筆數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>0050</td>
+<td>元大台灣50</td>
+<td>10613810.0</td>
+<td>2.062838e+09</td>
+<td>194.30</td>
+<td>194.85</td>
+<td>193.75</td>
+<td>194.30</td>
+<td>2.60</td>
+<td>14838.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>0051</td>
+<td>元大中型100</td>
+<td>71284.0</td>
+<td>5.561550e+06</td>
+<td>77.65</td>
+<td>78.25</td>
+<td>77.65</td>
+<td>78.05</td>
+<td>0.60</td>
+<td>275.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>0052</td>
+<td>富邦科技</td>
+<td>1033651.0</td>
+<td>1.976977e+08</td>
+<td>191.05</td>
+<td>191.95</td>
+<td>190.50</td>
+<td>190.90</td>
+<td>2.75</td>
+<td>1445.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>0053</td>
+<td>元大電子</td>
+<td>10444.0</td>
+<td>1.069091e+06</td>
+<td>102.20</td>
+<td>102.65</td>
+<td>102.20</td>
+<td>102.45</td>
+<td>1.30</td>
+<td>135.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>0055</td>
+<td>元大MSCI金融</td>
+<td>405153.0</td>
+<td>1.148577e+07</td>
+<td>28.27</td>
+<td>28.50</td>
+<td>28.27</td>
+<td>28.45</td>
+<td>0.28</td>
+<td>353.0</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>1265</th>
+<td>9944</td>
+<td>新麗</td>
+<td>98391.0</td>
+<td>2.062011e+06</td>
+<td>21.15</td>
+<td>21.15</td>
+<td>20.55</td>
+<td>20.55</td>
+<td>-0.05</td>
+<td>79.0</td>
+</tr>
+<tr>
+<th>1266</th>
+<td>9945</td>
+<td>潤泰新</td>
+<td>2096478.0</td>
+<td>9.568191e+07</td>
+<td>45.40</td>
+<td>45.80</td>
+<td>45.40</td>
+<td>45.75</td>
+<td>0.35</td>
+<td>2284.0</td>
+</tr>
+<tr>
+<th>1267</th>
+<td>9946</td>
+<td>三發地產</td>
+<td>391342.0</td>
+<td>9.885392e+06</td>
+<td>25.10</td>
+<td>25.50</td>
+<td>25.10</td>
+<td>25.25</td>
+<td>0.15</td>
+<td>171.0</td>
+</tr>
+<tr>
+<th>1268</th>
+<td>9955</td>
+<td>佳龍</td>
+<td>228883.0</td>
+<td>6.768874e+06</td>
+<td>29.40</td>
+<td>29.80</td>
+<td>29.40</td>
+<td>29.55</td>
+<td>0.20</td>
+<td>225.0</td>
+</tr>
+<tr>
+<th>1269</th>
+<td>9958</td>
+<td>世紀鋼</td>
+<td>1400632.0</td>
+<td>2.542917e+08</td>
+<td>180.00</td>
+<td>183.00</td>
+<td>180.00</td>
+<td>181.00</td>
+<td>1.00</td>
+<td>1937.0</td>
+</tr>
+</tbody>
+</table>
+<p>1270 rows × 10 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">get_open_data</span><span class="o">.</span><span class="n">get_stocks</span><span class="p">(</span><span class="s2">"0050"</span><span class="p">,</span> <span class="s2">"006208"</span><span class="p">,</span> <span class="s2">"2330"</span><span class="p">,</span> <span class="s2">"2454"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>證券代號</th>
+<th>證券名稱</th>
+<th>成交股數</th>
+<th>成交金額</th>
+<th>開盤價</th>
+<th>最高價</th>
+<th>最低價</th>
+<th>收盤價</th>
+<th>漲跌價差</th>
+<th>成交筆數</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>0050</td>
+<td>元大台灣50</td>
+<td>10613810.0</td>
+<td>2.062838e+09</td>
+<td>194.3</td>
+<td>194.85</td>
+<td>193.75</td>
+<td>194.30</td>
+<td>2.6</td>
+<td>14838.0</td>
+</tr>
+<tr>
+<th>13</th>
+<td>006208</td>
+<td>富邦台50</td>
+<td>10048421.0</td>
+<td>1.132388e+09</td>
+<td>113.5</td>
+<td>113.50</td>
+<td>112.30</td>
+<td>112.45</td>
+<td>1.3</td>
+<td>14060.0</td>
+</tr>
+<tr>
+<th>485</th>
+<td>2330</td>
+<td>台積電</td>
+<td>48632084.0</td>
+<td>5.150960e+10</td>
+<td>1060.0</td>
+<td>1065.00</td>
+<td>1055.00</td>
+<td>1055.00</td>
+<td>20.0</td>
+<td>55988.0</td>
+</tr>
+<tr>
+<th>571</th>
+<td>2454</td>
+<td>聯發科</td>
+<td>6211010.0</td>
+<td>8.141227e+09</td>
+<td>1325.0</td>
+<td>1330.00</td>
+<td>1295.00</td>
+<td>1315.00</td>
+<td>5.0</td>
+<td>7911.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -9768,7 +10621,6 @@ Namespaces are one honking great idea -- let's do more of those!
 <li>資料集頁面：<a href="https://data.gov.tw/datasets/search?p=1&amp;size=10&amp;s=_score_desc&amp;cgl-3=712&amp;rct=254">https://data.gov.tw/datasets/search?p=1&amp;size=10&amp;s=_score_desc&amp;cgl-3=712&amp;rct=254</a></li>
 <li>資料集 API<ul>
 <li><code>f"https://www.twse.com.tw/exchangeReport/{data_name}?response=open_data"</code></li>
-<li><code>f"https://www.taifex.com.tw/data_gov/taifex_open_data.asp?data_name={data_name}"</code></li>
 </ul>
 </li>
 </ul>
